@@ -102,7 +102,7 @@ final class BrowserModel: NSObject, ObservableObject, WKNavigationDelegate, WKUI
         if isMainFrame
             && navigationAction.navigationType == .linkActivated
             && !Blocker.staysInApp(url) {
-            UIApplication.shared.open(url)
+            _ = await UIApplication.shared.open(url)
             return .cancel
         }
 
